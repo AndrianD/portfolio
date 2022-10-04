@@ -98,7 +98,7 @@ $(function () {
   
       // Download CV
       const cvDownload = $('#download-cv');
-      const url = 'data/cv.pdf';
+      const url = './src/data/cv.pdf';
       cvDownload.on('click', function () {
           const link = document.createElement('a');
           link.href = url;
