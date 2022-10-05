@@ -96,16 +96,6 @@ $(function () {
           });
       });
   
-      // Download CV
-      const cvDownload = $('#download-cv');
-      const url = './src/data/cv.pdf';
-      cvDownload.on('click', function () {
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = url;
-          link.dispatchEvent(new MouseEvent('click'));
-      })
-  
       // Send email
       const sendEmail = $('#send-email');
       sendEmail.on('click', function () {
