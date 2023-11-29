@@ -30,7 +30,7 @@ module.exports = {
                 test: /\.(svg|eot|woff|woff2|ttf)$/,
                 type: 'asset/resource',
                 generator: {
-                  //publicPath: '../fonts/',
+                  publicPath: '../fonts/',
                   filename: 'fonts/[hash][ext][query]'
                 }
               },

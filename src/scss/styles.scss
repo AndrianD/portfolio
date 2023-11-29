@@ -14,6 +14,7 @@
         11. Optional Section Styles
         12. Media Queries
 */
+@use 'sass:math';
 
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
 /*
@@ -73,7 +74,7 @@ $text: #74808a;
     ----------------------------
 */
 @function toRem($value) {
-    $remValue: ($value / 16) + rem; 
+    $remValue: math.div($value, 16) + rem; 
     @return $remValue;
 }
 
@@ -753,6 +754,10 @@ footer {
         cursor: pointer;
         color: $background;
         text-decoration: underline;
+    }
+    #cvpdf {
+        color: #fff;
+        font-size: 12px;
     }
 }
 
