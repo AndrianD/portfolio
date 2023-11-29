@@ -2,8 +2,8 @@
 
 This is a portfolio made with sass and webpack 5 to learn webpack basics.
 
-- `NodeJS v14.18.3`
-- `Npm 6.14.15`
+- `NodeJS v20.5.1`
+- `Npm 9.8.0`
 
 ## Useful links
 
