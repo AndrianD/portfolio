@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --config webpack.dev.js --open",
-    "deploy": "NODE_ENV=production webpack --config webpack.prod.js"
+    "deploy": "NODE_ENV=production webpack --config webpack.prod.js",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write ."
   },
-  
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
@@ -14,9 +15,13 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.2",
     "path": "^0.12.7",
+    "prettier": "^3.1.0",
     "sass": "^1.48.0",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.1",
