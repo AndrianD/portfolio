@@ -1,6 +1,6 @@
 # Portfolio
 
-This is a portfolio made with sass and webpack 5 to learn webpack basics.
+This is a portfolio made with sass and webpack 5.
 
 - `NodeJS v20.5.1`
 - `Npm 9.8.0`
