@@ -460,7 +460,7 @@ footer {
     ---------------------------
 */
 
-#about {
+#about, #intro {
   padding: 75px 15px;
   border-bottom: 1px solid $border;
 
@@ -757,10 +757,13 @@ footer {
     color: #fff;
     font-weight: 500;
   }
-  #send-email {
+  #send-email, #tel-number {
     cursor: pointer;
     color: $background;
     text-decoration: underline;
+  }
+  #tel-number  {
+    text-decoration: none;
   }
   #cvpdf {
     color: #fff;
