@@ -76,6 +76,16 @@ $RECYCLE.BIN/
 
 node_modules
 css
-dist
+
+# Ignore everything in the dist directory
+dist/*
+
+# Don't ignore directories within dist
+# !dist/*/
+
+# Don't ignore the data directory and its contents within dist
+!dist/data/
+!dist/data/cv.pdf
+
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows
