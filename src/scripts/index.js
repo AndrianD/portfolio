@@ -135,6 +135,6 @@ $(function () {
   // Send email
   const sendEmail = $('#send-email')
   sendEmail.on('click', function () {
-    document.location.href = 'mailto:diz.andriana@yandex.com'
+    document.location.href = 'mailto:project@relaxmerim.com'
   })
 })
