@@ -6,10 +6,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
+
   output: {
     filename: 'js/main.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
+
   module: {
     rules: [
       {
@@ -28,12 +31,35 @@ module.exports = merge(common, {
       },
     ],
   },
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
     }),
+
     new CopyWebpackPlugin({
-      patterns: [{ from: 'src/data', to: 'data' }],
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/data'),
+          to: path.resolve(__dirname, 'dist/data'),
+          noErrorOnMissing: true,
+        },
+        {
+          from: path.resolve(__dirname, 'src/favicon.ico'),
+          to: path.resolve(__dirname, 'dist/favicon.ico'),
+          noErrorOnMissing: true,
+        },
+        {
+          from: path.resolve(__dirname, 'sitemap.xml'),
+          to: path.resolve(__dirname, 'dist/sitemap.xml'),
+          noErrorOnMissing: true,
+        },
+        {
+          from: path.resolve(__dirname, 'robots.txt'),
+          to: path.resolve(__dirname, 'dist/robots.txt'),
+          noErrorOnMissing: true,
+        },
+      ],
     }),
   ],
 })
