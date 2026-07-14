@@ -14,6 +14,7 @@
         11. Contact Styles
         12. Optional Section Styles
         13. Media Queries
+        14. Media Queries Externe
 */
 @use 'sass:math';
 
@@ -38,6 +39,7 @@ $border: #dcd9d9;
 // Define text colors
 $heading: #374054;
 $text: #74808a;
+$border-small: '5px';
 
 /*
     ---------------------
@@ -351,6 +353,173 @@ footer {
 }
 
 /*
+  --------------------------------------------------
+  GLOBAL INTERACTION RESET
+  Reset focus / active / visited sur liens et boutons
+  À placer tout en bas du fichier styles.scss
+  --------------------------------------------------
+*/
+a,
+button,
+[role='button'],
+input,
+textarea,
+select {
+  &:focus,
+  &:active {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+}
+
+a {
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:focus:not(:focus-visible),
+  &:active {
+    background-color: transparent;
+  }
+}
+
+/* Focus clavier propre et accessible */
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba($base-color, 0.55);
+  outline-offset: 4px;
+  box-shadow: none;
+}
+
+header {
+  a {
+    &:focus,
+    &:active,
+    &:visited {
+      background: transparent !important;
+      background-color: transparent !important;
+      color: #fff;
+      text-decoration: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    &:focus:not(:focus-visible) {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.12) !important;
+      outline: 2px solid rgba(255, 255, 255, 0.85);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.btn-rounded-white {
+  &,
+  &:visited,
+  &:focus,
+  &:active {
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    color: $base-color;
+    background: #fff;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    color: #fff;
+    background: transparent;
+    outline: 3px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 5px;
+  }
+}
+
+.contact-premium-btn,
+.contact-premium-cv,
+#send-email,
+#tel-number,
+#cvpdf {
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.contact-premium-btn-primary,
+#send-email.contact-premium-btn {
+  &:visited,
+  &:focus,
+  &:active {
+    color: $base-color;
+  }
+
+  &:hover {
+    color: $base-color-hover;
+  }
+}
+
+.contact-premium-btn-secondary,
+#tel-number.contact-premium-btn {
+  &:visited,
+  &:focus,
+  &:active {
+    color: #fff;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.contact-premium-cv,
+#cvpdf {
+  &:visited,
+  &:focus,
+  &:active {
+    color: #fff;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+/*
     --------------------------
     ----- 4. Lead Styles -----
     --------------------------
@@ -399,8 +568,29 @@ footer {
     cursor: pointer;
   }
 
-  p {
+  .lead-skills {
     color: rgb(220, 220, 220);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 10px;
+    max-width: 980px;
+    margin: 24px auto 28px;
+    color: #d9d8d8;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.45;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+
+      &:not(:last-child)::after {
+        content: '·';
+        margin-left: 10px;
+        opacity: 0.9;
+      }
+    }
   }
 }
 
@@ -599,13 +789,13 @@ footer {
 */
 
 #education {
-  padding: 50px 15px 20px 15px;
+  padding: 80px 15px 72px;
   border-bottom: 1px solid $border;
   text-align: center;
 
   h2 {
     color: $heading;
-    margin-bottom: 50px;
+    margin-bottom: 48px;
   }
 }
 
@@ -646,6 +836,110 @@ footer {
 
   ul {
     padding: 0 0 0 15px;
+  }
+}
+
+/* Variante premium utilisée par le portfolio */
+.education-premium-section {
+  background: radial-gradient(
+      circle at 10% 10%,
+      rgba($base-color, 0.07),
+      transparent 32%
+    ),
+    $background-alt;
+}
+
+.education-premium-card {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 34px 40px;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 28px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba($base-color, 0.18);
+  border-radius: $border-small;
+  box-shadow: 0 18px 44px rgba(55, 64, 84, 0.08);
+  text-align: left;
+}
+
+.education-premium-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $base-color;
+  background: rgba($base-color, 0.1);
+  box-shadow: inset 0 0 0 1px rgba($base-color, 0.18);
+
+  svg {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.education-premium-header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+
+  h3 {
+    margin: 0 0 6px;
+    color: $heading;
+    font-size: 1.45em;
+    font-weight: 700;
+  }
+
+  h4 {
+    margin: 0;
+    color: darken($text, 9%);
+    font-size: 1em;
+    font-weight: 600;
+  }
+}
+
+.education-premium-date {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border-radius: $border-small;
+  color: $base-color;
+  background: rgba($base-color, 0.08);
+  border: 1px solid rgba($base-color, 0.16);
+  font-weight: 800;
+}
+
+.education-premium-content {
+  p {
+    margin: 0 0 22px;
+    color: darken($text, 12%);
+    font-size: 1.02em;
+    line-height: 1.65;
+  }
+}
+
+.education-premium-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  span {
+    padding: 2px 14px;
+    border-radius: 999px;
+    color: darken($base-color, 8%);
+    background: rgba($base-color, 0.08);
+    border: 1px solid rgba($base-color, 0.12);
+    font-size: 0.75em;
+    font-weight: 700;
   }
 }
 
@@ -754,7 +1048,7 @@ footer {
   padding: 24px 26px;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba($base-color, 0.16);
-  border-radius: 18px;
+  border-radius: $border-small;
   box-shadow: 0 12px 30px rgba(55, 64, 84, 0.08);
   @include transition(0.25s, ease, all);
 
@@ -768,7 +1062,7 @@ footer {
 .skill-card-icon {
   width: 50px;
   height: 50px;
-  border-radius: 16px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -846,6 +1140,19 @@ footer {
     align-items: center;
   }
 
+  .ai-copy {
+    h2 {
+      margin-bottom: 22px;
+    }
+
+    p {
+      margin: 0;
+      color: #4f5965;
+      font-size: 1.08em;
+      line-height: 1.65;
+    }
+  }
+
   .ai-feature-list {
     display: grid;
     gap: 18px;
@@ -871,33 +1178,53 @@ footer {
   }
 
   .ai-feature-icon {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-    min-height: 52px;
-    border-radius: 16px;
-    display: inline-flex;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    max-width: 52px !important;
+    max-height: 52px !important;
+    border-radius: 8px;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    color: #3498db;
-    background: rgba(52, 152, 219, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(52, 152, 219, 0.18);
+    flex: 0 0 52px;
+    color: $base-color;
+    background: rgba($base-color, 0.1);
+    box-shadow: inset 0 0 0 1px rgba($base-color, 0.18);
     overflow: hidden;
 
     svg {
-      display: block;
+      display: block !important;
       width: 27px !important;
       height: 27px !important;
+      min-width: 27px !important;
+      min-height: 27px !important;
       max-width: 27px !important;
       max-height: 27px !important;
       fill: none !important;
       stroke: currentColor !important;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke-width: 1.8 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+      padding: 0 !important;
+      zoom: 1 !important;
+      animation: none !important;
+      transform: none !important;
     }
 
+    svg,
     svg * {
+      fill: none !important;
+      stroke: currentColor !important;
+    }
+
+    path,
+    circle,
+    rect,
+    line,
+    polyline,
+    polygon {
       fill: none !important;
       stroke: currentColor !important;
     }
@@ -912,16 +1239,20 @@ footer {
     width: 100%;
     max-width: 340px;
     padding: 18px;
-    border-radius: 28px;
-    background: linear-gradient(135deg, #ffffff, rgba(52, 152, 219, 0.08));
-    border: 1px solid rgba(52, 152, 219, 0.2);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffffff, rgba($base-color, 0.08));
+    border: 1px solid rgba($base-color, 0.2);
     box-shadow: 0 24px 55px rgba(55, 64, 84, 0.12);
 
-    svg {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
+    > svg {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      zoom: 1 !important;
+      animation: none !important;
+      transform: none !important;
     }
   }
 }
@@ -970,76 +1301,161 @@ footer {
     -------------------------------
 */
 
+/*
+    -------------------------------
+    ----- 11. Contact Styles -----
+    -------------------------------
+*/
+
 #contact {
-  padding: 50px 15px;
-  background: $base-color;
+  padding: 78px 15px 88px;
+  background: linear-gradient(
+    135deg,
+    $base-color 0%,
+    darken($base-color, 10%) 100%
+  );
   text-align: center;
+  color: #fff;
 
   h2 {
-    margin: 0 0 15px 0;
+    position: relative;
+    display: inline-block;
+    margin: 0 0 36px 0;
     color: #fff;
-    font-weight: 500;
-  }
-  #send-email,
-  #tel-number {
-    cursor: pointer;
-    color: $background;
-    text-decoration: underline;
-  }
-  #cvpdf {
-    color: #fff;
-    font-size: 12px;
+    font-size: 2em;
+    font-weight: 300;
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 100%;
+      height: 2px;
+      width: 50px;
+      left: 0;
+      right: 0;
+      margin: 8px auto 0;
+      background: #fff;
+      border-radius: 999px;
+    }
   }
 }
 
+.contact-premium-content,
 #contact-form {
-  max-width: 500px;
+  max-width: 760px;
   margin: 0 auto;
 
-  input,
-  textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 10px;
-    background: darken($base-color, 15%);
+  p {
+    max-width: 660px;
+    margin: 0 auto 24px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.08em;
+    line-height: 1.7;
+  }
+}
+
+.contact-premium-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 32px 0 22px;
+}
+
+.contact-premium-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 180px;
+  padding: 13px 24px;
+  // border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  @include transition(0.25s, ease, all);
+
+  svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+}
+
+.contact-premium-btn-primary,
+#send-email {
+  color: $base-color;
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+
+  &:hover,
+  &:focus {
+    color: $base-color-hover;
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+
+.contact-premium-btn-secondary,
+#tel-number {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+
+  &:hover,
+  &:focus {
     color: #fff;
-    @include transition();
-    @include placeholder {
-      color: #fff;
-    }
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
 
-    &:focus {
-      outline: none;
-      background: darken($base-color, 25%);
-    }
+.contact-premium-cv,
+#cvpdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 700;
+  text-decoration: underline;
+
+  svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
-  textarea {
-    height: 150px;
-    resize: none;
+  &:hover,
+  &:focus {
+    color: rgba(255, 255, 255, 0.86);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #contact {
+    padding: 62px 15px 72px;
   }
 
-  button {
-    display: block;
-    width: 100%;
-    background: #fff;
-    border-radius: 4px;
-    padding: 5px 10px;
-    border: none;
-    color: $base-color;
-    font-weight: 700;
-    box-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.12),
-      0 1px 2px rgba(0, 0, 0, 0.24);
-    @include transition();
+  .contact-premium-actions {
+    flex-direction: column;
 
-    &:hover {
-      box-shadow:
-        0 10px 20px rgba(0, 0, 0, 0.19),
-        0 6px 6px rgba(0, 0, 0, 0.23);
+    a {
+      width: 100%;
     }
   }
 }
@@ -1201,6 +1617,21 @@ footer {
     a {
       padding: 10px 20px;
     }
+    .lead-skills {
+      max-width: 390px;
+      font-size: 1.1em;
+      line-height: 1.45;
+      margin: 22px auto 26px;
+
+      span:nth-child(n + 5) {
+        display: none;
+      }
+
+      span:nth-child(4)::after {
+        content: '';
+        margin-left: 0;
+      }
+    }
   }
 
   #lead-down {
@@ -1250,5 +1681,55 @@ footer {
       font-size: 0.9em;
       padding: 5px 10px;
     }
+    .lead-skills {
+      max-width: 300px;
+      font-size: 1.05em;
+    }
   }
 }
+
+/* Responsive spécifique Formation + Contact premium */
+@media only screen and (max-width: 768px) {
+  .education-premium-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 32px 24px;
+  }
+
+  .education-premium-icon {
+    margin: 0 auto;
+  }
+
+  .education-premium-header {
+    display: block;
+
+    h3 {
+      font-size: 1.25em;
+    }
+  }
+
+  .education-premium-date {
+    display: inline-block;
+    margin-top: 14px;
+  }
+
+  .education-premium-tags {
+    justify-content: center;
+  }
+
+  .contact-premium-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-premium-btn {
+    width: 100%;
+  }
+}
+
+/*
+    -----------------------------
+    ----- 14. Media Queries Externe -----
+    -----------------------------
+*/
+@import 'responsive-overrides';

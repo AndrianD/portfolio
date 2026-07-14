@@ -1,0 +1,345 @@
+/*
+  Responsive overrides
+  À importer tout en bas de styles.scss :
+  @import 'responsive-overrides';
+*/
+
+@media only screen and (max-width: 992px) {
+  /* Expertise / Ce que j’apporte */
+  #expertise {
+    text-align: center;
+
+    .col-md-4,
+    .col-md-8 {
+      width: 100%;
+    }
+
+    .heading {
+      margin-bottom: 36px;
+    }
+
+    .expertise-intro-grid {
+      > div {
+        margin-bottom: 28px;
+      }
+
+      h3 {
+        font-size: 1.35em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        max-width: 640px;
+        margin: 0 auto;
+        line-height: 1.65;
+      }
+    }
+  }
+
+  /* Compétences */
+  #skills {
+    padding: 64px 15px;
+  }
+
+  .skills-intro {
+    max-width: 680px;
+    padding: 0 8px;
+  }
+
+  .skills-list-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 720px;
+  }
+
+  .skill-list-card {
+    grid-template-columns: 54px 1fr;
+    padding: 24px;
+  }
+
+  /* IA & automatisation */
+  #innovation.ai-option-2 {
+    padding: 72px 15px;
+
+    .ai-layout {
+      grid-template-columns: 1fr;
+      gap: 34px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .ai-copy {
+      text-align: center;
+
+      h2 {
+        text-align: center;
+
+        &:after {
+          margin-left: auto;
+        }
+      }
+
+      p {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+    }
+
+    .ai-visual {
+      order: -1;
+    }
+
+    .ai-visual-card {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Formation */
+  .education-premium-card {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* Contact */
+  .contact-premium-content {
+    max-width: 760px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Sections globales */
+  #skills,
+  #innovation,
+  #education,
+  #contact {
+    overflow-x: hidden;
+  }
+
+  /* Compétences */
+  #skills {
+    .heading {
+      margin-bottom: 22px;
+    }
+  }
+
+  .skills-intro {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 34px;
+
+    p {
+      margin-bottom: 18px;
+    }
+  }
+
+  .skills-intro-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+
+    span {
+      display: inline-flex;
+      width: auto;
+      max-width: 100%;
+      font-size: 0.88em;
+      line-height: 1.3;
+    }
+  }
+
+  .skills-list-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .skill-list-card {
+    width: 100%;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 22px 20px;
+  }
+
+  .skill-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .skill-card-content {
+    h3 {
+      font-size: 1.08em;
+      line-height: 1.3;
+    }
+
+    li {
+      font-size: 0.94em;
+      line-height: 1.45;
+    }
+  }
+
+  /* IA & automatisation */
+  #innovation.ai-option-2 {
+    padding: 64px 15px;
+
+    .ai-layout {
+      gap: 28px;
+    }
+
+    .ai-feature-list {
+      gap: 16px;
+    }
+
+    .ai-feature-item {
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .ai-feature-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
+
+      svg {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
+
+    .ai-feature-item p {
+      font-size: 0.96em;
+      line-height: 1.5;
+    }
+  }
+
+  /* Formation */
+  #education.education-premium-section {
+    padding: 64px 15px;
+  }
+
+  .education-premium-card {
+    display: block;
+    padding: 34px 24px;
+    text-align: center;
+  }
+
+  .education-premium-icon {
+    margin: 0 auto 22px;
+  }
+
+  .education-premium-header {
+    display: block;
+    text-align: center;
+
+    h3 {
+      font-size: 1.2em;
+      line-height: 1.3;
+    }
+
+    h4 {
+      font-size: 0.95em;
+    }
+  }
+
+  .education-premium-date {
+    display: inline-flex;
+    margin-top: 14px;
+  }
+
+  .education-premium-tags {
+    justify-content: center;
+  }
+
+  /* Contact */
+  #contact.contact-premium-section,
+  #contact {
+    padding: 64px 15px;
+  }
+
+  .contact-premium-content {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .contact-premium-actions {
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  /* Compétences : éviter les cartes trop étroites */
+  .skills-list-grid {
+    max-width: 420px;
+  }
+
+  .skill-list-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .skill-card-icon {
+    margin: 0 auto;
+  }
+
+  .skill-card-content {
+    ul {
+      text-align: left;
+    }
+  }
+
+  /* IA : compact et propre */
+  #innovation.ai-option-2 {
+    .ai-feature-item {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .ai-feature-icon {
+      margin: 0 auto;
+    }
+
+    .ai-feature-item p {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .ai-visual-card {
+      max-width: 300px;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .skills-intro {
+    font-size: 0.95em;
+  }
+
+  .skill-list-card {
+    padding: 22px 18px;
+  }
+
+  .education-premium-card {
+    padding: 30px 18px;
+  }
+
+  .contact-premium-content p,
+  #contact-form p {
+    font-size: 0.98em;
+    line-height: 1.6;
+  }
+}

@@ -48,9 +48,14 @@
       <div id="lead-content">
         <h1>Prenom Nom</h1>
         <h2>Consultant Frontend Senior e-commerce</h2>
-        <p>
-          Vue.js · Nuxt.js · TypeScript · SAP Commerce Cloud · Salesforce
-          Commerce Cloud · GTM / Data Layer · Automatisation & IA
+        <p class="lead-skills">
+          <span>Vue.js</span>
+          <span>Nuxt.js</span>
+          <span>TypeScript</span>
+          <span>SAP Commerce Cloud</span>
+          <span>Salesforce Commerce Cloud</span>
+          <span>GTM / Data Layer</span>
+          <span>Automatisation & IA</span>
         </p>
         <a href="/data/cv.pdf" class="btn-rounded-white" target="_blank"
           >Voir le CV</a
@@ -794,40 +799,98 @@
       </div>
     </section>
 
-    <section id="education" class="background-alt">
-      <h2 class="heading">Formation</h2>
-      <div class="education-block">
-        <h3>IFOCOP — Institut de Formation Professionnelle</h3>
-        <span class="education-date">2009</span>
-        <h4>Ingénierie programmation / Développeur informatique</h4>
-        <p>
-          Formation en développement informatique général, programmation web,
-          intégration, bases de données et conception d’applications.
-        </p>
+    <section id="education" class="background-alt education-premium-section">
+      <div class="container">
+        <h2 class="heading">Formation</h2>
+
+        <div class="education-premium-card">
+          <div class="education-premium-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M3 8l9-4 9 4-9 4-9-4Z" />
+              <path d="M7 10.2V15c0 1.7 2.2 3 5 3s5-1.3 5-3v-4.8" />
+              <path d="M21 8v6" />
+            </svg>
+          </div>
+
+          <div class="education-premium-content">
+            <div class="education-premium-header">
+              <div>
+                <h3>IFOCOP — Institut de Formation Professionnelle</h3>
+                <h4>Ingénierie programmation / Développeur informatique</h4>
+              </div>
+              <span class="education-premium-date">2009</span>
+            </div>
+
+            <p>
+              Formation complète en développement informatique général :
+              programmation web, intégration frontend, bases de données et
+              conception d’applications.
+            </p>
+
+            <div class="education-premium-tags" aria-label="Axes de formation">
+              <span>Programmation web</span>
+              <span>Intégration frontend</span>
+              <span>Bases de données</span>
+              <span>Conception d’applications</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div id="contact-form">
-        <p>
-          Vous avez un projet web, une évolution ou un besoin
-          frontend à structurer ? Je serais ravi d’échanger avec vous pour
-          comprendre le contexte, les priorités métier et voir comment on
-          pourrait avancer ensemble et efficacement.
-        </p>
-        <p>
-          Je reste à votre disposition
-          <a id="send-email" href="mailto:[email]">par email</a
-          ><br />
-          ou bien 
-          <a id="tel-number" href="tel:+33700000000">par téléphone</a>
-        </p>
-        <p>
-          <a href="/data/cv.pdf" id="cvpdf" target="_blank"
-            >Voir le CV complet au format PDF</a
+    <section id="contact" class="contact-premium-section">
+      <div class="container">
+        <h2 class="heading">Contact</h2>
+
+        <div class="contact-premium-content">
+          <p>
+            Vous avez un projet à faire avancer, une interface à améliorer ou un
+            besoin frontend à structurer ? Échangeons simplement sur votre
+            contexte et voyons comment je peux vous aider.
+          </p>
+
+          <div class="contact-premium-actions">
+            <a
+              id="send-email"
+              class="contact-premium-btn contact-premium-btn-primary"
+              href="mailto:[email]"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 6h16v12H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+              Par email
+            </a>
+
+            <a
+              id="tel-number"
+              class="contact-premium-btn contact-premium-btn-secondary"
+              href="tel:+33700000000"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.5 19.5 0 0 1 5.2 12 19.8 19.8 0 0 1 2.1 3.4 2 2 0 0 1 4.1 1.2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 8.9a16 16 0 0 0 7 7l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"
+                />
+              </svg>
+              Par téléphone
+            </a>
+          </div>
+
+          <a
+            href="/data/cv.pdf"
+            id="cvpdf"
+            class="contact-premium-cv"
+            target="_blank"
           >
-        </p>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 2h9l5 5v15H6z" />
+              <path d="M15 2v5h5" />
+              <path d="M9 13h6" />
+              <path d="M9 17h6" />
+            </svg>
+            Voir le CV complet au format PDF
+          </a>
+        </div>
       </div>
     </section>
 
